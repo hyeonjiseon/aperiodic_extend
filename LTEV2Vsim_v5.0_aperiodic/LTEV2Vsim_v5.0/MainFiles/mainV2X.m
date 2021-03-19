@@ -43,7 +43,7 @@ fprintf('Simulation Time: ');
 reverseStr = '';
 
 %YJ - Read Empirical Model's Data, m = 5, Volkswagen, Highway, intervals only
-M_matrix = readmatrix('M_VolkswagenHighway_IntervalsOnly_m5.csv'); %이 엑셀파일이 지금은 없음
+%M_matrix = readmatrix('M_VolkswagenHighway_IntervalsOnly_m5.csv'); %이 엑셀파일이 지금은 없음
 
 while timeManagement.timeNow < simParams.simulationTime
 

@@ -6,7 +6,7 @@ if stationManagement.numPacketInit(IDvehicle)<5
     RRP1 = M_matrix(stationManagement.usedNumRow(IDvehicle),stationManagement.numPacketInit(IDvehicle)*1);
     RRP2 = 0;
 elseif stationManagement.numPacketInit(IDvehicle)>=5
-    idx1 = find(timeManagement.packetInterval(IDvehicle,1) == M_matrix(:,1);
+    idx1 = find(timeManagement.packetInterval(IDvehicle,1) == M_matrix(:,1));
     idx2 = intersect(find(timeManagement.packetInterval(IDvehicle,2)==M_matrix(:,2)),idx1);
     idx3 = intersect(find(timeManagement.packetInterval(IDvehicle,3)==M_matrix(:,3)),idx2);
     idx4 = intersect(find(timeManagement.packetInterval(IDvehicle,4)==M_matrix(:,4)),idx3);
@@ -26,12 +26,12 @@ elseif stationManagement.numPacketInit(IDvehicle)>=5
 end
 %Alg 2, Line 5-7
 if stationManagement.resReselectionCounterLTE(IDvehicle) > 1 && RRP1>0
-    stationMAnagement.conductReserveMatrix(stationManagement.BRid(IDvehicle),RRP1,IDvehicle) = 1;
+    stationManagement.conductReserveMatrix(stationManagement.BRid(IDvehicle),RRP1,IDvehicle) = 1;
     if RRP2 > 0
         stationManagement.conductReserveMatrix(statioinManagement.BRid(IDvehicle),RRP2,IDvehicle)=1;
     end
     %Alg 2, Line 8-11
-elseif stationManagement.resReselectionCounterLTE(IDvehicle == 1 && RRP1 > 0
+elseif stationManagement.resReselectionCounterLTE(IDvehicle == 1 && RRP1 > 0)
     sensingMatrixScheduled = sum(stationManagement.sensingMatrixLTE(:,:,IDvehicle),1)/length(stationManagement.sensingMatrixLTE(:,1,1));
     if simParams.subframeT1Mode4 > 1 || simParams.subframeT2Mode4 <100
         if NbeaconsT ~=100
