@@ -139,7 +139,7 @@ end
 %YJ - Every vehicles update their reservation Matrix. Be aware of Half
 %Duplex problem.
 % Alg 2, Line 12
-if ~isempty(staionManagement.transmittingIDsLTE)
+if ~isempty(stationManagement.transmittingIDsLTE)
     for iV = 1: length(stationManagement.transmittingIDsLTE)
         vTx = stationManagement.transmittingIDsLTE(iV);
         for idxNeigh = 1: length(stationManagement.neighborsIDLTE(vTx, :))
@@ -190,7 +190,7 @@ scheduledID = find (stationManagement.resReselectionCounterLTE==0);
 
 %YJ - Calaulate IDs of vehicles which perform probResKeep
 % Alg 1, Line 2
-pkScheduledID = find (stationMAnagement.resReselectionDounterLTE == 1 & inTheLastSubframe == 1);
+pkScheduledID = find (stationManagement.resReselectionDounterLTE == 1 & inTheLastSubframe == 1);
 
 % Calculate the number of vehicles which perform reselection
 Nscheduled = length(scheduledID);
@@ -224,7 +224,7 @@ end
 %% Perform the reselection
 for indexSensingV = 1:Nscheduled
     %YJ - Alg 1, Line 8-14
-    stationManagement.reselectionNum = stationMAnagement.reselectionNum * 1;
+    stationManagement.reselectionNum = stationManagement.reselectionNum * 1;
     
     % Select the sensing matrix only for those vehicles that perform reallocation
     % and calculate the average of the measured power over the sensing window

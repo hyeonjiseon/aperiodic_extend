@@ -41,10 +41,10 @@ elseif stationManagement.resReselectionCounterLTE(IDvehicle == 1 && RRP1 > 0)
         %the calculations depend on where T1 and T2 are placed IF Both T1
         %and T2 are within this beacon period
         if (currentT*simParams.subframeT2Mode4+1)<=NbeaconsT
-            sensingMatrixScheduled([1:((currentT+simParams.subframeT1Mode4-1)*NbeaconsF),((currentT*simParams.subframeT2Mode4)*NbeaconsF+1)]);%안보임
-            %IF Both are beyond this beacon period
+            sensingMatrixScheduled([1:((currentT+simParams.subframeT1Mode4-1)*NbeaconsF),((currentT*simParams.subframeT2Mode4)*NbeaconsF+1:Nbeacons)]) = inf;
+            %IF Both are beyond this beacon period:
         elseif (currentT+simParams.subframeT1Mode4-1)>NbeaconsT
-            sensingMatrixScheduled([1:((currentT+simParams.subframeT1Mode4-1-NbeaconsT)*NbeaconsF),((currentT+simPArams.subframeT2Mode4-NbeaconsT)*NbeaconsF)]);%안보임
+            sensingMatrixScheduled([1:((currentT+simParams.subframeT1Mode4-1-NbeaconsT)*NbeaconsF),((currentT+simPArams.subframeT2Mode4-NbeaconsT)*NbeaconsF+1):Nbeacons]) = inf;
         end
         
         sensingMatrixPerm = sensingMatrixScheduled(rpMatrix);
