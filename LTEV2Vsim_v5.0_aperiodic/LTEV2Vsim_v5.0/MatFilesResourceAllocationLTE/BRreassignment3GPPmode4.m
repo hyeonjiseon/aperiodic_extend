@@ -130,8 +130,8 @@ end
 
 %YJ - Conduct Reservation (Devide cases, if RC = 1 or not), this code is based on aperiodic CAM
 % Alg 2
-if ~isempty(stationMAnagement.transmittingIDsLTE)
-    for i = 1:length(stationMAnagement.transmittingIDsLTE)
+if ~isempty(stationManagement.transmittingIDsLTE)
+    for i = 1:length(stationManagement.transmittingIDsLTE)
         [stationManagement] = conductReservation(N_matrix, simParams,stationManagement, timeManagement,stationMAnagement.transmittingIDsLTE(i));%안보임
     end
 end
@@ -139,16 +139,16 @@ end
 %YJ - Every vehicles update their reservation Matrix. Be aware of Half
 %Duplex problem.
 % Alg 2, Line 12
-if ~isempty(staionMAnagement.transmittingIDsLTE)
-    for iV = 1: length(stationMAnagement.transmittingIDsLTE)
+if ~isempty(staionManagement.transmittingIDsLTE)
+    for iV = 1: length(stationManagement.transmittingIDsLTE)
         vTx = stationManagement.transmittingIDsLTE(iV);
-        for idxNeigh = 1: length(stationMAnagement.neighborsIDLTE(vTx, :))
+        for idxNeigh = 1: length(stationManagement.neighborsIDLTE(vTx, :))
             vRx = stationManagement.neighborsIDLTE(vTx, idxNeigh);
             if vRx <= 0
                 break;
             end
-            if stationMAnagement.correctSCImatrixLTE(iV, idxNeigh) == 1
-                [BR, RRP] = find(stationMAnagement.conductReserveMatrix(:,:,vTx)==1);
+            if stationManagement.correctSCImatrixLTE(iV, idxNeigh) == 1
+                [BR, RRP] = find(stationManagement.conductReserveMatrix(:,:,vTx)==1);
                 if length(BR)>=1
                     for j =1:length(BR)
                         stationManagement.updateReserveMatrix(BR(j),RRP(j),vRx)=1;
@@ -209,7 +209,7 @@ if simParams.probResKeep>0
     keepRand = rand(1,Nscheduled);
     %YJ - Alg 1, Line 3    
     notScheduledID = pkScheduledID(keepRand < simParams.probResKeep);
-    scheduledID = scheduledID(keepRand >= simParams.probResKeep
+    scheduledID = scheduledID(keepRand >= simParams.probResKeep;
     
     % Update the number of vehicles which perform reselection
 %     Nscheduled = length(scheduledID);
